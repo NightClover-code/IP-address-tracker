@@ -4,7 +4,6 @@ import { getGeolocation } from '../../utils';
 
 const Search = () => {
   const [ipAddress, setIpAddress] = useState<string>('');
-  const [ipData, setData] = useState();
 
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

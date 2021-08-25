@@ -1,10 +1,15 @@
-import { NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 import Header from '../components/Header';
 import SEO from '../components/SEO';
-import { seoConfig } from '../utils';
+import { getGeolocation, seoConfig } from '../utils';
 import dynamic from 'next/dynamic';
+import { LocationData } from '../interfaces';
 
-const HomePage: NextPage = () => {
+interface HomePageProps {
+  locationData: LocationData;
+}
+
+const HomePage: NextPage<HomePageProps> = ({ locationData }) => {
   const Map = dynamic(() => import('../components/Map'), { ssr: false });
 
   return (
@@ -16,6 +21,16 @@ const HomePage: NextPage = () => {
       </div>
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const locationData = await getGeolocation('');
+
+  return {
+    props: {
+      locationData,
+    },
+  };
 };
 
 export default HomePage;
