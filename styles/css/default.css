@@ -18,6 +18,61 @@ header h1 {
   font-size: 32px;
 }
 
+.search__container {
+  max-width: 550px;
+  height: 60px;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 17px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.search__container input {
+  width: 100%;
+  padding: 0 20px;
+  font-family: inherit;
+  font-size: 18px;
+  border-radius: 17px;
+  border: none;
+  outline: none;
+}
+
+.search__container input::-webkit-input-placeholder {
+  opacity: 80%;
+}
+
+.search__container input:-ms-input-placeholder {
+  opacity: 80%;
+}
+
+.search__container input::-ms-input-placeholder {
+  opacity: 80%;
+}
+
+.search__container input::placeholder {
+  opacity: 80%;
+}
+
+.search__container .button__primary {
+  width: 70px;
+  border-top-right-radius: 17px;
+  border-bottom-right-radius: 17px;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #2b2b2b;
+}
+
 * {
   margin: 0;
   padding: 0;

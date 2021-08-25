@@ -1,0 +1,31 @@
+.search__container {
+  max-width: 550px;
+  height: 60px;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 17px;
+  display: flex;
+  input {
+    width: 100%;
+    padding: 0 20px;
+    font-family: inherit;
+    font-size: 18px;
+    border-radius: 17px;
+    border: none;
+    outline: none;
+    &::placeholder {
+      opacity: 80%;
+    }
+  }
+  .button__primary {
+    width: 70px;
+    border-top-right-radius: 17px;
+    border-bottom-right-radius: 17px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $heavy-text;
+  }
+}
