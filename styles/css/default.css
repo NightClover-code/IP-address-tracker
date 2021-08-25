@@ -111,9 +111,15 @@ header .header__container h1 {
           align-items: center;
 }
 
+.address__details .vertical__line {
+  height: 70px;
+  width: 1.5px;
+  background-color: #969696;
+  opacity: 30%;
+}
+
 .address__details__item {
   text-align: left;
-  padding: 0 20px;
 }
 
 .address__details__item h2 {
