@@ -1,5 +1,5 @@
 const AddressDetails = () => {
-  return <div></div>;
+  return <div className="address__details"></div>;
 };
 
 export default AddressDetails;
