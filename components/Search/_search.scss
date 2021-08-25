@@ -6,6 +6,10 @@
   margin-top: 30px;
   border-radius: 17px;
   display: flex;
+  @media screen and(max-width: 800px) {
+    width: 90%;
+    max-width: none;
+  }
   input {
     width: 100%;
     padding: 0 25px;

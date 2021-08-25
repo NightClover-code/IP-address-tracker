@@ -16,6 +16,9 @@ header {
       padding-top: 30px;
       color: white;
       font-size: 32px;
+      @media screen and(max-width: 800px) {
+        font-size: 25px;
+      }
     }
   }
 }
