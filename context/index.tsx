@@ -9,8 +9,8 @@ const initialState = {
     country: '',
     postalCode: '',
     timezone: '',
-    lat: '',
-    lng: '',
+    lat: 0,
+    lng: 0,
   },
   isp: '',
 };
