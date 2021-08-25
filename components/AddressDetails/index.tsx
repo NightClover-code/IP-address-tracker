@@ -1,10 +1,15 @@
-import { useRef } from 'react';
+import { useRef, useContext } from 'react';
+import { LocationContext } from '../../context';
 import { useWidth } from '../../hooks';
 import Item from './Item';
 
 const AddressDetails = () => {
   const addressDetailsRef = useRef<HTMLDivElement | null>(null);
   const width = useWidth(addressDetailsRef);
+
+  const { locationData } = useContext(LocationContext);
+
+  const { city, country, postalCode, timezone } = locationData.location;
 
   return (
     <div
@@ -15,13 +20,13 @@ const AddressDetails = () => {
         marginLeft: `-${width! / 2}px`,
       }}
     >
-      <Item headline="IP Address" data="192.212.174.101" />
+      <Item headline="IP Address" data={locationData.ip} />
       <div className="vertical__line"></div>
-      <Item headline="Location" data="Brooklyn, NY, 10001" />
+      <Item headline="Location" data={`${country}, ${city}, ${postalCode}`} />
       <div className="vertical__line"></div>
-      <Item headline="TimeZone" data="UTC-05:00" />
+      <Item headline="TimeZone" data={`UTC ${timezone}`} />
       <div className="vertical__line"></div>
-      <Item headline="ISP" data="SpaceX Starlink" />
+      <Item headline="ISP" data={locationData.isp} />
     </div>
   );
 };

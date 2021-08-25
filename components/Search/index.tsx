@@ -1,16 +1,18 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useContext, useState } from 'react';
 import Image from 'next/image';
 import { getGeolocation } from '../../utils';
+import { LocationContext } from '../../context';
 
 const Search = () => {
   const [ipAddress, setIpAddress] = useState<string>('');
+  const { setLocationData } = useContext(LocationContext);
 
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const data = await getGeolocation(ipAddress);
 
-    console.log(data);
+    setLocationData(data);
   };
 
   return (

@@ -1,5 +1,7 @@
 import L from 'leaflet';
-import { MapContainer, Marker, TileLayer } from 'react-leaflet';
+import { useContext } from 'react';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { LocationContext } from '../../context';
 
 const Map = () => {
   const myIcon = L.icon({
@@ -7,9 +9,15 @@ const Map = () => {
     iconSize: [35, 50],
   });
 
+  const {
+    locationData: {
+      location: { lat, lng },
+    },
+  } = useContext(LocationContext);
+
   return (
     <MapContainer
-      center={[33.971588, -6.849813]}
+      center={[lat, lng]}
       zoom={13}
       style={{ height: '100%', width: '100%' }}
     >
@@ -17,7 +25,9 @@ const Map = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[33.971588, -6.849813]} icon={myIcon}></Marker>
+      <Marker position={[lat, lng]} icon={myIcon}>
+        <Popup></Popup>
+      </Marker>
     </MapContainer>
   );
 };

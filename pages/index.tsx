@@ -1,9 +1,11 @@
-import { GetServerSideProps, NextPage } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import Header from '../components/Header';
 import SEO from '../components/SEO';
 import { getGeolocation, seoConfig } from '../utils';
 import dynamic from 'next/dynamic';
 import { LocationData } from '../interfaces';
+import { useContext, useEffect } from 'react';
+import { LocationContext } from '../context';
 
 interface HomePageProps {
   locationData: LocationData;
@@ -11,6 +13,11 @@ interface HomePageProps {
 
 const HomePage: NextPage<HomePageProps> = ({ locationData }) => {
   const Map = dynamic(() => import('../components/Map'), { ssr: false });
+  const { setLocationData } = useContext(LocationContext);
+
+  useEffect(() => {
+    setLocationData(locationData);
+  }, [setLocationData, locationData]);
 
   return (
     <>
@@ -23,7 +30,7 @@ const HomePage: NextPage<HomePageProps> = ({ locationData }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const locationData = await getGeolocation('');
 
   return {
