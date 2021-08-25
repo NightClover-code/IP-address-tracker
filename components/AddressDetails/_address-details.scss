@@ -12,11 +12,12 @@
   box-shadow: 0px 1px 30px 25px rgba(0, 0, 0, 0.05);
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 40px;
   .vertical__line {
     height: 70px;
     width: 1.5px;
     background-color: $text;
-    opacity: 30%;
+    opacity: 20%;
   }
 }
