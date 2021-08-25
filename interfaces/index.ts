@@ -1,3 +1,5 @@
+import { SetStateAction, Dispatch } from 'react';
+
 export interface LocationData {
   ip: string;
   location: {
@@ -5,6 +7,13 @@ export interface LocationData {
     country: string;
     postalCode: string;
     timezone: string;
+    lat: string;
+    lng: string;
   };
   isp: string;
+}
+
+export interface LocationDataState {
+  locationData: LocationData;
+  setLocationData: Dispatch<SetStateAction<LocationData>>;
 }
