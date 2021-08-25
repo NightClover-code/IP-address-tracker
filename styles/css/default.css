@@ -1,17 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
 header {
-  background: url("../images/pattern-bg.png");
+  position: relative;
   min-height: 250px;
+  width: 100%;
+}
+
+header .header__container {
+  background: url("../images/pattern-bg.png");
+  height: 100%;
   width: 100%;
   background-size: cover;
   text-align: center;
+  -webkit-box-shadow: 1px 0px 20px 10px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 0px 20px 10px rgba(0, 0, 0, 0.15);
   position: absolute;
   left: 0;
   top: 0;
   z-index: 999;
 }
 
-header h1 {
+header .header__container h1 {
   font-weight: 500;
   padding-top: 30px;
   color: white;
@@ -32,7 +40,7 @@ header h1 {
 
 .search__container input {
   width: 100%;
-  padding: 0 20px;
+  padding: 0 25px;
   font-family: inherit;
   font-size: 18px;
   border-radius: 17px;
@@ -41,19 +49,19 @@ header h1 {
 }
 
 .search__container input::-webkit-input-placeholder {
-  opacity: 80%;
+  color: #969696;
 }
 
 .search__container input:-ms-input-placeholder {
-  opacity: 80%;
+  color: #969696;
 }
 
 .search__container input::-ms-input-placeholder {
-  opacity: 80%;
+  color: #969696;
 }
 
 .search__container input::placeholder {
-  opacity: 80%;
+  color: #969696;
 }
 
 .search__container .button__primary {
@@ -71,6 +79,13 @@ header h1 {
       -ms-flex-pack: center;
           justify-content: center;
   background-color: #2b2b2b;
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+  cursor: pointer;
+}
+
+.search__container .button__primary:hover {
+  opacity: 80%;
 }
 
 * {

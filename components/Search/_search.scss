@@ -8,14 +8,14 @@
   display: flex;
   input {
     width: 100%;
-    padding: 0 20px;
+    padding: 0 25px;
     font-family: inherit;
     font-size: 18px;
     border-radius: 17px;
     border: none;
     outline: none;
     &::placeholder {
-      opacity: 80%;
+      color: $text;
     }
   }
   .button__primary {
@@ -27,5 +27,10 @@
     align-items: center;
     justify-content: center;
     background-color: $heavy-text;
+    transition: 0.3s all ease-in-out;
+    cursor: pointer;
+    &:hover {
+      opacity: 80%;
+    }
   }
 }
