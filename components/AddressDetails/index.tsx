@@ -19,7 +19,9 @@ const AddressDetails = () => {
     },
     {
       headline: 'Location',
-      info: `${country}, ${city}, ${postalCode}`,
+      info: postalCode
+        ? `${country}, ${city}, ${postalCode}`
+        : `${country}, ${city}`,
     },
     {
       headline: 'Timezone',
@@ -40,11 +42,15 @@ const AddressDetails = () => {
         marginLeft: `-${width! / 2}px`,
       }}
     >
-      {data.map(({ headline, info }) => {
+      {data.map(({ headline, info }, index) => {
         return (
           <>
             <Item headline={headline} data={info} key={uuidv4()} />
-            <div className="vertical__line"></div>
+            {index !== data.length - 1 ? (
+              <div className="vertical__line"></div>
+            ) : (
+              ''
+            )}
           </>
         );
       })}
