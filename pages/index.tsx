@@ -12,6 +12,7 @@ interface HomePageProps {
 }
 
 const HomePage: NextPage<HomePageProps> = ({ locationData }) => {
+  //leaflet with next.js window break fix
   const Map = dynamic(() => import('../components/Map'), { ssr: false });
   const { setLocationData } = useContext(LocationContext);
 

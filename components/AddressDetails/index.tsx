@@ -1,6 +1,8 @@
+//importing hooks & context
 import { useRef, useContext } from 'react';
-import { LocationContext } from '../../context';
 import { useWidth } from '../../hooks';
+import { LocationContext } from '../../context';
+//importing components & random id's
 import Item from './Item';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -10,8 +12,10 @@ const AddressDetails = () => {
 
   const { locationData } = useContext(LocationContext);
 
+  //destructuring
   const { city, country, postalCode, timezone } = locationData.location;
 
+  //location info
   const data = [
     {
       headline: 'IP Address',

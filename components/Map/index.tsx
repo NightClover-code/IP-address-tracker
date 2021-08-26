@@ -1,9 +1,12 @@
+//importing map components
 import L from 'leaflet';
 import { useContext } from 'react';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { MapContainer, Marker, TileLayer } from 'react-leaflet';
+//importing context
 import { LocationContext } from '../../context';
 
 const Map = () => {
+  //marker icon
   const myIcon = L.icon({
     iconUrl: './images/marker.png',
     iconSize: [35, 50],

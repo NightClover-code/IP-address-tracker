@@ -1,6 +1,8 @@
+//importing hooks & types
 import { FormEvent, useContext, useState } from 'react';
 import Image from 'next/image';
-import { getGeolocation } from '../../utils';
+//importing context & api
+import { getGeolocation, isValidIp } from '../../utils';
 import { LocationContext } from '../../context';
 
 const Search = () => {
@@ -10,12 +12,7 @@ const Search = () => {
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const regEx =
-      /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(
-        ipAddress
-      );
-
-    if (!regEx) {
+    if (!isValidIp(ipAddress)) {
       alert('Please enter a valid IP Address!');
       return;
     }
